@@ -2,9 +2,6 @@ name: builder
 
 on:
   push:
-  workflow_dispatch:
-  schedule:
-    - cron: '49 23 * * *'
 
 jobs:
   scheduled:
@@ -21,7 +18,7 @@ jobs:
     - name: build
       run: |-
         cd openwrt-imagebuilder-ramips-mt76x8.Linux-x86_64
-        make image PROFILE="tplink_tl-mr6400-v4" PACKAGES=“modemmanager uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base \ luci-app-firewall luci-mod-admin-full luci-theme-bootstrap \ -ppp -ppp-mod-pppoe -ip6tables -odhcp6c \ -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only”
+        make image PROFILE="tplink_tl-mr6400-v4" PACKAGES=“modemmanager uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-app-firewall luci-mod-admin-full luci-theme-bootstrap -ppp -ppp-mod-pppoe -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only”
     - name: generate-tag-name
       run: echo "TAG_NAME=refs/tags/v$(date '+%Y%m%d')" >> $GITHUB_ENV
     - name: release
