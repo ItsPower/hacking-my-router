@@ -24,7 +24,7 @@ jobs:
     - name: release
       uses: svenstaro/upload-release-action@v2
       with:
-        body: "OpenWrt for TP-Link TL-MR6400 V4 with ModemManager included."
+        body: "OpenWrt for TP-Link TL-MR6400 V4 with ModemManager included. "
         file: openwrt-imagebuilder-ramips-mt76x8.Linux-x86_64/bin/targets/ramips/mt76x8/*.bin
         file_glob: true
         tag: ${{ env.TAG_NAME }}
