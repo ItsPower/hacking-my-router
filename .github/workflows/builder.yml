@@ -18,7 +18,7 @@ jobs:
     - name: build
       run: |-
         cd openwrt-imagebuilder-ramips-mt76x8.Linux-x86_64
-        make image PROFILE="tplink_tl-mr6400-v4" PACKAGES="modemmanager luci-proto-modemmanager luci-proto-qmi luci-proto-3g luci-proto-ncm uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-app-firewall luci-mod-admin-full luci-theme-bootstrap -ppp -ppp-mod-pppoe -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only"
+        make image PROFILE="tplink_tl-mr6400-v4" PACKAGES="modemmanager luci-proto-modemmanager luci-proto-qmi luci-proto-3g luci-proto-ncm uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-app-firewall luci-mod-admin-full luci-theme-bootstrap -ppp -ppp-mod-pppoe -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only netcat"
     - name: generate-tag-name
       run: echo "TAG_NAME=refs/tags/v$(date '+%Y%m%d_3')" >> $GITHUB_ENV
     - name: release
